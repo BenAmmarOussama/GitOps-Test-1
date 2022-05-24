@@ -7,17 +7,14 @@ spec:
   project: default
 
   source:
-    repoURL: https://gitlab.com/nanuchi/argocd-app-config.git
+    repoURL: https://github.com/BenAmmarOussama/GitOps-Test-1.git
     targetRevision: HEAD
-    path: dev
+    path: chart-1
   destination: 
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: default
 
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
-
     automated:
       selfHeal: true
       prune: true

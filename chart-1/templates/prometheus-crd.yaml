@@ -2,6 +2,8 @@ apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
   name: prometheus
+  annotations:
+    argocd.argoproj.io/sync-options: Replace=true
 spec:
   replicas: {{ .Values.prometheus.replicaCount }}
   podMetadata:
