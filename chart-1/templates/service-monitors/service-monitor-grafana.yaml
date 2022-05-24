@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: grafana
+spec:
+  selector:
+    matchLabels:
+      app: grafana
+      monitored-by-prometheus: "true"
+  namespaceSelector:
+    any: true
+  endpoints:
+    - interval: 10s
+      targetPort: http-grafana
+      path: /metrics

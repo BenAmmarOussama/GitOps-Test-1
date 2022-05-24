@@ -1,0 +1,33 @@
+prometheus:
+  replicaCount: 3
+
+###
+# Disable components  
+###
+kube-prometheus-stack:
+  defaultRules:
+    create: false
+  alertmanager:
+    enabled: false
+  grafana:
+    enabled: false
+  kubeProxy:
+    enabled: false
+  kubeApiServer:
+    enabled: false
+  kubelet:
+    enabled: false
+  kubeControllerManager:
+    enabled: false
+  coreDns:
+    enabled: false
+  kubeEtcd:
+    enabled: false
+  kubeScheduler:
+    enabled: false
+  kubeStateMetrics:
+    enabled: false
+  nodeExporter:
+    enabled: false
+  prometheus:
+    enabled: false
