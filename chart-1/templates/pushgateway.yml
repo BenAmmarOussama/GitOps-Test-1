@@ -4,7 +4,7 @@ metadata:
   name: pushgateway
   labels:
     app: pushgateway
-  namespace: {{ .Values.namespace.name }}
+  namespace: {{ .Values.namespace.name | "monitoring" }}
 spec:
   replicas: 1
   selector:
@@ -27,7 +27,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pushgateway
-  namespace: {{ .Values.namespace.name }}
+  namespace: {{ .Values.namespace.name | "monitoring" }}
   labels:
     app: pushgateway
     monitored-by-prometheus: "true"

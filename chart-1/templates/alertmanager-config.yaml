@@ -2,7 +2,7 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
-  namespace: {{ .Values.namespace.name }}
+  namespace: {{ .Values.namespace.name | "monitoring" }}
   name: config-alertmanager
   labels:
     alertmanagerConfig: example
@@ -25,6 +25,6 @@ kind: Secret
 type: Opaque
 metadata:
   name: slack-config
-  namespace: {{ .Values.namespace.name }}
+  namespace: {{ .Values.namespace.name | "monitoring" }}
 stringData:
   urlSecret: https://hooks.slack.com/services/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

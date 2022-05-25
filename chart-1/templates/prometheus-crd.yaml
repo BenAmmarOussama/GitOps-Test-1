@@ -2,11 +2,11 @@ apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
 metadata:
   name: prometheus
-  namespace: {{ .Values.namespace.name }}
+  namespace: {{ .Values.namespace.name | "monitoring" }}
   annotations:
     argocd.argoproj.io/sync-options: Replace=true
 spec:
-  replicas: {{ .Values.prometheus.replicaCount }}
+  replicas: {{ .Values.prometheus.replicaCount  }}
   podMetadata:
     labels:
       thanos-store-api: "true"
@@ -39,7 +39,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: prometheus
-  namespace: {{ .Values.namespace.name }}
+  namespace: {{ .Values.namespace.name | "monitoring" }}
   labels:
     app: prometheus
     monitored-by-prometheus: "true"
@@ -59,7 +59,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: thanos-sidecar
-  namespace: {{ .Values.namespace.name }}
+  namespace: {{ .Values.namespace.name | "monitoring" }}
   labels:
     app: thanos-sidecar
     monitored-by-prometheus: "true"
