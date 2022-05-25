@@ -5,6 +5,7 @@ metadata:
   labels:
     role: alert-rules
   name: prometheus-example-rules
+  namespace: {{ .Values.namespace.name }}
 spec:
   groups:
   - name: ./example.rules

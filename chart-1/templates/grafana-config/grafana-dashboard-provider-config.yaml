@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grafana-dashboard-provider-config
+  namespace: {{ .Values.namespace.name }}
 data:
   dashboard.yaml: |
     # # config file version

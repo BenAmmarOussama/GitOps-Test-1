@@ -4,6 +4,7 @@ type: Opaque
 metadata:
   creationTimestamp: null
   name: additional-scrape-configs
+  namespace: {{ .Values.namespace.name }}
 stringData:
   jobs: |
     - job_name: 'applications'

@@ -1,5 +1,7 @@
 prometheus:
   replicaCount: 3
+namespace:
+  name: monitoring
 
 ###
 # Disable components  
